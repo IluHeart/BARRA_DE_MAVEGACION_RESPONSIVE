@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+    background: #afcddb ;
+    display: flex;
+    width: 100%;
+    height: 45px;
+    clear: both;
+    content:'';
+    align-items: center;
+    justify-content: space-between ;
+}
+
+/* DEBEMOS OCULTAR LOS BOTONES
+ PARA ABRIR EL MENU LATERAL CUANDO LA PANTALLA ES GRANDE */
+
+.abrir-menu,
+.cerrar-menu {
+    display:none;
+}
+
+.menu {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.nav-list {
+    display: flex;
+}
+
+nav {
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    list-style: none;
+    margin-left: 75px;
+    padding: 12px 0;
+    float: left;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+}
+
+nav ul li a::before {
+    display: block;
+    content: '';
+    width: 0%;
+    background: #444;
+    height: 5px;
+    top: 0;
+    position: absolute;
+    transition: width 0.2s;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+}
+
+@media screen and (max-width: 719px) {
+    .abrir-menu,
+    .cerrar-menu {
+        display: block;
+    }
+
+    /* opacidad 0 y visibility hedden nos permitira hacer animaciones */
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 15px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #88a3af;
+        margin-top: 45px;
+        padding: 10px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* VOY A CREAR UNA CLASE CON JAVA SCRIPS */
+
+    .nav.visible {
+        opacity: 1;
+        visibility: visible ;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: end;
+    }
+    
+}
